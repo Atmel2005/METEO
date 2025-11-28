@@ -7,6 +7,9 @@
 !AHT20+BMP280.jpg
 !esp32_c3_mini.jpg
 !flash_download_tool.zip
+!conekt1.jpg
+!conekt2.jpg
+!METEO.jpg
 
 # Разрешаем каталог firmware и нужные бинарники внутри
 !firmware/
