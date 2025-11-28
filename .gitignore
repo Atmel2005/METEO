@@ -4,6 +4,7 @@
 # 
 !.gitignore
 !README.md
+!privacy_policy_ru.md
 !AHT20+BMP280.jpg
 !esp32_c3_mini.jpg
 !flash_download_tool.zip
