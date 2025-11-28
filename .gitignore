@@ -1,7 +1,7 @@
-# Игнорировать всё в корне
+# 
 /*
 
-# Но не игнорировать эти файлы в корне
+# 
 !.gitignore
 !README.md
 !AHT20+BMP280.jpg
@@ -11,7 +11,7 @@
 !conekt2.jpg
 !METEO.jpg
 
-# Разрешаем каталог firmware и нужные бинарники внутри
+# 
 !firmware/
 !firmware/meteo_station/
 !firmware/meteo_station/build/
