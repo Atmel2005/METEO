@@ -1,0 +1,16 @@
+# Игнорировать всё в корне
+/*
+
+# Но не игнорировать эти файлы в корне
+!.gitignore
+!README.md
+!AHT20+BMP280.jpg
+!esp32_c3_mini.jpg
+!flash_download_tool.zip
+
+# Разрешаем каталог firmware и нужные бинарники внутри
+!firmware/
+!firmware/meteo_station/
+!firmware/meteo_station/build/
+!firmware/meteo_station/build/esp32.esp32.lolin_c3_mini/
+!firmware/meteo_station/build/esp32.esp32.lolin_c3_mini/*.bin
