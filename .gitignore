@@ -18,3 +18,8 @@
 !firmware/meteo_station/build/
 !firmware/meteo_station/build/esp32.esp32.lolin_c3_mini/
 !firmware/meteo_station/build/esp32.esp32.lolin_c3_mini/*.bin
+
+# ignore recovered local folders/files
+firmware/android_app/
+firmware/firmware/
+firmware/meteo_station/meteo_station.ino
