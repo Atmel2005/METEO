@@ -164,6 +164,84 @@ Wenn der Release die Datei `meteo_station.ino.merged.bin` enthält, sind Bootloa
 
 ---
 
+## Web‑Oberfläche
+
+Die Station bietet eine umfangreiche Web‑Oberfläche mit folgenden Funktionen:
+
+### Hauptseite
+
+- Anzeige der aktuellen Messwerte (Temperatur, Luftfeuchtigkeit, Druck, Höhe)
+- Statusanzeige (Online, Wi‑Fi verbunden)
+
+### Menü‑Schaltflächen
+
+- **📊 Diagramme** — Echtzeit‑Diagramme der Sensordaten (aktualisieren sich jede Sekunde)
+- **📈 Statistik** — Verlaufsanzeige mit konfigurierbarem Zeitraum (1 Stunde bis alle Daten)
+- **🌐 Sprache** — Auswahl der Benutzeroberflächen‑Sprache (4 Sprachen verfügbar)
+- **⚙️ Einheiten** — Einstellung der Maßeinheiten und Korrekturwerte
+- **📡 BT Modus** — Zurücksetzen in den BLE‑Modus (Neustart erforderlich)
+
+### Spracheinstellung
+
+Die Web‑Oberfläche unterstützt 4 Sprachen:
+- 🇷🇺 Русский (Russisch)
+- 🇬🇧 English (Englisch)
+- 🇺🇦 Українська (Ukrainisch)
+- 🇩🇪 Deutsch
+
+Die Spracheinstellung wird gespeichert und nach einem Neustart beibehalten.
+
+### Maßeinheiten
+
+Im Menü **Einheiten** können Sie wählen:
+- **Temperatur**: °C oder °F
+- **Druck**: hPa, kPa oder mmHg
+- **Höhe**: Meter oder Fuß
+
+### Korrekturwerte
+
+Wenn die Sensoren systematische Abweichungen zeigen, können Sie im selben Menü Korrekturwerte eingeben:
+- Temperatur (Schritt 0,1 °C)
+- Luftfeuchtigkeit (Schritt 0,1 %)
+- Luftdruck (Schritt 0,1 hPa)
+- Höhe (Schritt 0,1 m)
+
+Die Korrekturwerte werden auf alle angezeigten Daten angewendet und gespeichert.
+
+### BT‑Modus‑Schaltfläche
+
+Die Schaltfläche **📡 BT Modus** setzt die Station in den BLE‑Betriebsmodus zurück:
+
+- Nach Bestätigung startet die Station neu
+- Nach dem Neustart arbeitet die Station im BLE‑Modus
+- Wi‑Fi‑Einstellungen bleiben erhalten (werden nicht gelöscht)
+
+Dies ist nützlich, wenn Sie die Station erneut über die Android‑App konfigurieren möchten.
+
+### Hardware‑Taste: Werksreset
+
+Auf dem Board befindet sich die **BOOT‑Taste** (GPIO 9). Sie ermöglicht einen vollständigen Werksreset:
+
+- Halten Sie die BOOT‑Taste **3 Sekunden** lang gedrückt
+- Die Station löscht alle Einstellungen (Wi‑Fi, Sprache, Einheiten, Korrekturwerte)
+- Nach dem Löschen startet die Station neu
+- Nach dem Neustart arbeitet die Station im BLE‑Modus (wie nach dem ersten Flashen)
+
+Der Werksreset ist nützlich, wenn Sie alle Einstellungen vollständig zurücksetzen möchten.
+
+### Firmware‑Update über Android‑App
+
+Die neue Version der Android‑App ermöglicht das **Flashen und Aktualisieren der Firmware** direkt über ein **USB‑OTG‑Kabel**:
+
+- Verbinden Sie die Station über USB‑OTG mit dem Android‑Gerät
+- Die App erkennt die Station automatisch
+- Wählen Sie die gewünschte Firmware‑Version
+- Der Flash‑Vorgang erfolgt direkt über die App
+
+Dies ersetzt nicht die BLE‑Konfiguration, sondern bietet eine bequeme Methode zur Firmware‑Aktualisierung ohne PC.
+
+---
+
 ## Logs und Performance
 
 - Überflüssige serielle Debug‑Ausgaben sind deaktiviert.
@@ -373,6 +451,87 @@ Android‑додаток підключається до станції, пок�
 
 ---
 
+## Веб‑інтерфейс
+
+Станція має розширений веб‑інтерфейс із такими функціями:
+
+### Головна сторінка
+
+- Відображення поточних вимірювань (температура, вологість, тиск, висота)
+- Індикатор статусу (Онлайн, Wi‑Fi підключено)
+
+### Меню кнопок
+
+- **📊 Графіки** — графіки в реальному часі (оновлення кожну секунду)
+- **📈 Статистика** — перегляд історії з налаштовуваним періодом (від 1 години до всіх даних)
+- **🌐 Мова** — вибір мови інтерфейсу (4 мови)
+- **⚙️ Одиниці** — налаштування одиниць виміру та коригування
+- **📡 BT режим** — повернення в BLE‑режим (потрібно перезавантаження)
+
+### Мова інтерфейсу
+
+Веб‑інтерфейс підтримує 4 мови:
+
+- 🇷🇺 Русский
+- 🇬🇧 English
+- 🇺🇦 Українська
+- 🇩🇪 Deutsch
+
+Налаштування мови зберігається й відновлюється після перезавантаження.
+
+### Одиниці виміру
+
+У меню **Одиниці** можна обрати:
+
+- **Температура**: °C або °F
+- **Тиск**: hPa, kPa або mmHg
+- **Висота**: метри або фути
+
+### Коригування показань
+
+Якщо датчики мають систематичні похибки, можна ввести поправки:
+
+- Температура (крок 0,1 °C)
+- Вологість (крок 0,1 %)
+- Тиск (крок 0,1 hPa)
+- Висота (крок 0,1 м)
+
+Поправки застосовуються до всіх даних і зберігаються.
+
+### Кнопка BT режим
+
+Кнопка **📡 BT режим** переводить станцію в BLE‑режим:
+
+- Після підтвердження станція перезавантажиться
+- Після перезавантаження станція працює в BLE‑режимі
+- Налаштування Wi‑Fi зберігаються (не видаляються)
+
+Це корисно, якщо потрібно переналаштувати станцію через Android‑додаток.
+
+### Апаратна кнопка: Скидання до заводських налаштувань
+
+На платі розміщена кнопка **BOOT** (GPIO 9). Вона дозволяє виконати повне скидання:
+
+- Утримуйте кнопку BOOT **3 секунди**
+- Станція видалить усі налаштування (Wi‑Fi, мову, одиниці, коригування)
+- Після видалення станція перезавантажиться
+- Після перезавантаження станція працює в BLE‑режимі (як після першого прошивання)
+
+Скидання корисне, якщо потрібно повністю очистити всі налаштування.
+
+### Оновлення прошивки через Android‑додаток
+
+Нова версія Android‑додатку дозволяє **прошивати й оновлювати прошивку** безпосередньо через **USB‑OTG‑кабель**:
+
+- Підключіть станцію через USB‑OTG до Android‑пристрою
+- Додаток автоматично визначить станцію
+- Оберіть потрібну версію прошивки
+- Процес прошивання відбувається безпосередньо через додаток
+
+Це не замінює BLE‑налаштування, а надає зручний спосіб оновлення прошивки без ПК.
+
+---
+
 ## Логи та продуктивність
 
 - У прошивці відключено зайвий відладочний вивід у Serial.
@@ -579,6 +738,87 @@ If the release provides `meteo_station.ino.merged.bin`, it already contains boot
 
 - Web page: `http://<ip_address>/`
 - Metrics: `http://<ip_address>/metrics` (JSON)
+
+---
+
+## Web Interface
+
+The station provides a comprehensive web interface with the following features:
+
+### Main Page
+
+- Display of current measurements (temperature, humidity, pressure, altitude)
+- Status indicators (Online, Wi‑Fi Connected)
+
+### Menu Buttons
+
+- **📊 Charts** — Real‑time sensor charts (updates every second)
+- **📈 Statistics** — Historical data view with configurable time range (1 hour to all data)
+- **🌐 Language** — Interface language selection (4 languages available)
+- **⚙️ Units** — Measurement units and calibration settings
+- **📡 BT Mode** — Reset to BLE mode (requires restart)
+
+### Language Setting
+
+The web interface supports 4 languages:
+
+- 🇷🇺 Русский (Russian)
+- 🇬🇧 English
+- 🇺🇦 Українська (Ukrainian)
+- 🇩🇪 Deutsch (German)
+
+The language setting is saved and persists after restart.
+
+### Measurement Units
+
+In the **Units** menu you can choose:
+
+- **Temperature**: °C or °F
+- **Pressure**: hPa, kPa or mmHg
+- **Altitude**: meters or feet
+
+### Calibration Values
+
+If sensors show systematic deviations, you can enter correction values in the same menu:
+
+- Temperature (step 0.1 °C)
+- Humidity (step 0.1 %)
+- Pressure (step 0.1 hPa)
+- Altitude (step 0.1 m)
+
+Corrections are applied to all displayed data and saved.
+
+### BT Mode Button
+
+The **📡 BT Mode** button resets the station to BLE operating mode:
+
+- After confirmation, the station reboots
+- After reboot, the station operates in BLE mode
+- Wi‑Fi settings are preserved (not deleted)
+
+This is useful when you want to reconfigure the station via the Android app.
+
+### Hardware Button: Factory Reset
+
+The board has a **BOOT button** (GPIO 9). It allows a complete factory reset:
+
+- Hold the BOOT button for **3 seconds**
+- The station clears all settings (Wi‑Fi, language, units, calibration values)
+- After clearing, the station reboots
+- After reboot, the station operates in BLE mode (like after first flash)
+
+Factory reset is useful when you want to completely clear all settings.
+
+### Firmware Update via Android App
+
+The new version of the Android app allows **flashing and updating firmware** directly via a **USB‑OTG cable**:
+
+- Connect the station via USB‑OTG to the Android device
+- The app automatically detects the station
+- Select the desired firmware version
+- The flashing process happens directly through the app
+
+This doesn't replace BLE configuration, but provides a convenient way to update firmware without a PC.
 
 ---
 
@@ -793,6 +1033,87 @@ Android‑приложение подключается к станции, по�
 
 - Веб‑страница: `http://<ip_адрес>/`
 - Метрики: `http://<ip_адрес>/metrics` (JSON)
+
+---
+
+## Веб‑интерфейс
+
+Станция предоставляет расширенный веб‑интерфейс со следующими функциями:
+
+### Главная страница
+
+- Отображение текущих измерений (температура, влажность, давление, высота)
+- Индикаторы статуса (Онлайн, Wi‑Fi подключено)
+
+### Меню кнопок
+
+- **📊 Графики** — графики в реальном времени (обновление каждую секунду)
+- **📈 Статистика** — просмотр истории с настраиваемым периодом (от 1 часа до всех данных)
+- **🌐 Язык** — выбор языка интерфейса (4 языка)
+- **⚙️ Единицы** — настройка единиц измерения и корректировка
+- **📡 BT режим** — возврат в BLE‑режим (требуется перезагрузка)
+
+### Настройка языка
+
+Веб‑интерфейс поддерживает 4 языка:
+
+- 🇷🇺 Русский
+- 🇬🇧 English
+- 🇺🇦 Українська
+- 🇩🇪 Deutsch
+
+Настройка языка сохраняется и восстанавливается после перезагрузки.
+
+### Единицы измерения
+
+В меню **Единицы** можно выбрать:
+
+- **Температура**: °C или °F
+- **Давление**: hPa, kPa или mmHg
+- **Высота**: метры или футы
+
+### Корректировка показаний
+
+Если датчики имеют систематические погрешности, можно ввести поправки:
+
+- Температура (шаг 0,1 °C)
+- Влажность (шаг 0,1 %)
+- Давление (шаг 0,1 hPa)
+- Высота (шаг 0,1 м)
+
+Поправки применяются ко всем отображаемым данным и сохраняются.
+
+### Кнопка BT режим
+
+Кнопка **📡 BT режим** переводит станцию в BLE‑режим:
+
+- После подтверждения станция перезагрузится
+- После перезагрузки станция работает в BLE‑режиме
+- Настройки Wi‑Fi сохраняются (не удаляются)
+
+Это полезно, если нужно перенастроить станцию через Android‑приложение.
+
+### Аппаратная кнопка: Сброс к заводским настройкам
+
+На плате расположена кнопка **BOOT** (GPIO 9). Она позволяет выполнить полный сброс:
+
+- Удерживайте кнопку BOOT **3 секунды**
+- Станция удалит все настройки (Wi‑Fi, язык, единицы, корректировки)
+- После удаления станция перезагрузится
+- После перезагрузки станция работает в BLE‑режиме (как после первой прошивки)
+
+Сброс полезен, если нужно полностью очистить все настройки.
+
+### Обновление прошивки через Android‑приложение
+
+Новая версия Android‑приложения позволяет **прошивать и обновлять прошивку** напрямую через **USB‑OTG‑кабель**:
+
+- Подключите станцию через USB‑OTG к Android‑устройству
+- Приложение автоматически определит станцию
+- Выберите нужную версию прошивки
+- Процесс прошивки происходит напрямую через приложение
+
+Это не заменяет BLE‑настройку, а предоставляет удобный способ обновления прошивки без ПК.
 
 ---
 
